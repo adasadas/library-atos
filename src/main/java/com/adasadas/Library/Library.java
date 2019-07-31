@@ -63,11 +63,7 @@ public class Library {
                 .filter(entry -> isNull(title) || entry.getValue().getBook().getTitle().matches("(?i).*" + title + ".*"))
                 .filter(entry -> isNull(author) || entry.getValue().getBook().getAuthor().matches("(?i).*" + author + ".*"))
                 .filter(entry -> isNull(year) || entry.getValue().getBook().getYear().equals(year))
-                .forEach(entry -> System.out.println("id: " + entry.getKey() +
-                        " title: " + entry.getValue().getBook().getTitle() +
-                        " author: " + entry.getValue().getBook().getAuthor() +
-                        " year: " + entry.getValue().getBook().getYear() +
-                        " isLent: " + entry.getValue().isLent()));
+                .forEach(entry -> System.out.println("id: " + entry.getKey() + " " + entry.getValue()));
     }
 
     public void lendBook(long id, String lendingPersonName) {
@@ -89,14 +85,7 @@ public class Library {
     public void showAllBooksDetails(long id) {
         LendableBook book = idToBookMap.get(id);
         if(nonNull(book)) {
-            boolean isLent = book.isLent();
-            String lentBy = isLent ? " lent by: " + book.getLendingPersonName() : "";
-
-        System.out.println("id: " + id +
-                " title: " + book.getBook().getTitle() +
-                " author: " + book.getBook().getAuthor() +
-                " year: " + book.getBook().getYear() +
-                " isLent: " + isLent + lentBy);
+        System.out.println("id: " + id + " " + book);
         } else {
             System.out.println("book not found");
         }

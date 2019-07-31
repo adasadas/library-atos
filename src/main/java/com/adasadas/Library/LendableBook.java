@@ -49,4 +49,10 @@ class LendableBook implements Lendable {
     public int hashCode() {
         return book.hashCode();
     }
+
+    @Override
+    public String toString() {
+        String lentBy = isLent ? " lent by: " + lendingPersonName : "";
+        return book + " isLent: " + isLent + lentBy;
+    }
 }

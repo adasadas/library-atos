@@ -194,9 +194,10 @@ public class LibraryTest {
         System.setOut(new PrintStream(outContent));
         library.findBooks("pan", null, null);
         String print = outContent.toString();
-        assertThat(print, CoreMatchers.containsString("id: 1 title: Oto Pan Kleks author: Pan Jan year: 1800 isLent: true"));
+
+        assertThat(print, CoreMatchers.containsString("id: 1 title: Oto Pan Kleks author: Pan Jan year: 1800 isLent: true lent by: Jane"));
         assertThat(print, CoreMatchers.containsString("id: 2 title: Pan Tadeusz author: Adam Mickiewicz year: 1834 isLent: false"));
-        assertEquals(143, print.length());
+        assertEquals(157, print.length());
     }
 
     @Test
